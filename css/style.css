@@ -1,0 +1,163 @@
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+  height: 100vh;
+  overflow: hidden;
+  color: white;
+  background: black;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: -20%;
+  background:
+    radial-gradient(circle at center, rgba(0,0,0,0.3), rgba(0,0,0,0.9)),
+    url("../images/stars.jpg");
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  animation: starDrift 90s linear infinite;
+  z-index: 0;
+}
+
+@keyframes starDrift {
+  0% {
+    transform: translate(0, 0) scale(1);
+  }
+  20% {
+    transform: translate(-120px, -80px) scale(1.02);
+  }
+  40% {
+    transform: translate(100px, -120px) scale(1.01);
+  }
+  60% {
+    transform: translate(120px, 80px) scale(1.02);
+  }
+  80% {
+    transform: translate(-100px, 120px) scale(1.01);
+  }
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+}
+
+
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(circle at center, transparent 40%, rgba(0,0,0,0.75));
+  pointer-events: none;
+  z-index: 1;
+}
+
+
+.hero {
+  position: relative;
+  z-index: 2;
+  height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  text-align: center;
+}
+
+
+.logo {
+  font-size: 4rem;
+  letter-spacing: 6px;
+  font-weight: 600;
+
+  text-shadow:
+    0 0 10px rgba(95,211,255,0.4),
+    0 0 25px rgba(95,211,255,0.25);
+}
+
+.logo span {
+  color: #5fd3ff;
+}
+
+
+.tagline {
+  margin-top: 12px;
+  opacity: 0.85;
+  font-size: 1rem;
+}
+
+
+.actions {
+  margin-top: 35px;
+}
+
+.actions button,
+.actions a {
+  padding: 12px 28px;
+  margin: 10px;
+
+  border-radius: 30px;
+  border: none;
+
+  background: linear-gradient(135deg, #5fd3ff, #3a9ed9);
+  color: #000;
+  font-weight: bold;
+
+  cursor: pointer;
+  text-decoration: none;
+
+  box-shadow:
+    0 0 15px rgba(95,211,255,0.5),
+    0 0 30px rgba(95,211,255,0.2);
+
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.actions button:hover,
+.actions a:hover {
+  transform: scale(1.1);
+  box-shadow:
+    0 0 25px rgba(95,211,255,0.8),
+    0 0 50px rgba(95,211,255,0.4);
+}
+
+#blackhole {
+  position: fixed;
+  width: 0;
+  height: 0;
+  opacity: 0;
+  border-radius: 50%;
+  background: radial-gradient(circle, #000 40%, #000 60%);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow:
+    0 0 80px 40px rgba(0,0,0,0.9),
+    0 0 200px 120px rgba(0,0,0,0.8);
+  z-index: 999;
+  pointer-events: none;
+  transition:
+    width 1.2s ease,
+    height 1.2s ease,
+    opacity 0.3s ease;
+}
+.logo.clickable {
+  cursor: pointer;
+}
+
+.logo.clickable:hover {
+  text-shadow:
+    0 0 15px rgba(95,211,255,0.7),
+    0 0 40px rgba(95,211,255,0.4);
+}
+
